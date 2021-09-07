@@ -1,0 +1,5 @@
+node_modules/
+worker
+worker.js
+dist
+worker/

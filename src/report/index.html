@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <!-- PERFRAME_PAGES_CONFIG_INJECT -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  </head>
+  <body class="bg-light">
+    <div id="container" class="container"></div>
+    <script id="markup" type="text/template">
+      <h1> Performance Analysis for <%= website %></h1>
+      <ul class="list-group">
+      <% _.each(pages, function (pageConfig, pageType) {%>
+      	<li class="list-group-item">
+      	<div><h2><%= pageType %></h2></div>
+      	<% if(pageConfig.optimizations) { %>
+      	<ul class="list-group">
+      	<% _.forEach(pageConfig.optimizations, function (optimization) { %>
+      		<li class="list-group-item">Optimization Targets: <strong><%= optimization.targets.join(' ') %></strong>
+      			<ul class="">
+      				<li class=""><span class="text-success">Actionables:</span>
+      					<ul class="">
+      						<% _.each(optimization.changes, function(change){
+      							%>
+      							<li class=""><span class="text-warning"><%= change.disabled ? '[DISABLED]': '' %></span><%= change.implementation && change.implementation.suggestion || change.description %><%= change.implementation && change.implementation.effort ? '<strong>[' + change.implementation.effort + ' Effort]</strong>': '' %>
+      							<% if (change.devCommentary) { %>
+      							<ul class="">
+      								<ul class="">
+      									<% _.forEach(change.devCommentary, function (comment) { %>
+      										<li class=""> <%= comment %> </li>
+      									<% }) %>
+      								</ul>
+      							</ul>
+      							<% } %>
+      						</li>
+      						<%})%>
+      					</ul>
+      				</li>
+      				<% if (optimization.improvements) {%>
+      				<li class=""><span class="text-success">Improvements:</span>
+      					<ul>
+      						<% _.each(optimization.improvements, function(improvement){ %>
+      							<li>Tool: <strong><%= improvement.tool  %></strong>, <%= improvement.description %></li>
+      						<%})%>
+      					</ul>
+      				</li>
+      				<% } %>
+      			</ul>
+      		</li>
+      	<%})%>
+      	</ul>
+      	<%} else {%>
+      		<div>Not Analyzed Yet
+      	<%}%>
+      	</li>
+      <% }) %>
+      <ul class="list-group">
+    </script>
+    <script>
+      const compiled = _.template(document.getElementById("markup").innerHTML);
+      document.getElementById("container").innerHTML = compiled(
+        window.auditConfig
+      );
+    </script>
+  </body>
+</html>

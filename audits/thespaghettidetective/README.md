@@ -1,0 +1,1 @@
+Disclaimer: The website https://www.thespaghettidetective.com/ isn't owned by me. This is being used just as an example. I intend to replace it with some other example website built for this framework's testing purpose.

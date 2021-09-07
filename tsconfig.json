@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "commonjs",
+    "target": "esnext",
+    "lib": ["esnext", "webworker", "DOM"],
+    "alwaysStrict": true,
+    "strict": true,
+    "allowJs": true,
+    "checkJs": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "types": ["@cloudflare/workers-types"]
+  },
+  "exclude": [
+    "node_modules/",
+    "dist/",
+    "worker.js",
+    "worker/*",
+    "static/worker.js"
+  ]
+}

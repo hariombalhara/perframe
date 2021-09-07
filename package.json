@@ -1,0 +1,66 @@
+{
+  "name": "perframe",
+  "version": "0.5.0",
+  "description": "Keep the proxy server running  ```bash  pnpm run start  ```",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack  --env isLocal=true --watch --progress",
+    "prod": "webpack  --watch --progress",
+    "start": "nodemon server.js -p 9090 -w server.js",
+    "format": "prettier --write '**/*.{js,css,json,md}'",
+    "tsc": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.js",
+    "audit": "zx audit.mjs",
+    "publish": "zx publish.mjs",
+    "watch": "watch --interval=3 'npm run publish' src audits"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src",
+      "static",
+      "dist",
+      "version*"
+    ]
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^2.2.2",
+    "@cloudflare/wrangler": "^1.19.0",
+    "@types/websocket": "^1.0.4",
+    "chalk": "^4.1.2",
+    "cheerio": "^1.0.0-rc.10",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "express": "^4.17.1",
+    "http-server": "^0.12.3",
+    "lighthouse": "^8.1.0",
+    "lighthouse-viewer": "^0.1.17",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.5",
+    "node-fetch": "^2.6.1",
+    "node-jq": "^2.0.0",
+    "node-osascript": "^2.1.0",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "raw-loader": "^4.0.2",
+    "typescript": "^4.3.5",
+    "uncss": "^0.17.3",
+    "watch": "^1.0.2",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.7.2",
+    "websocket": "^1.0.34",
+    "whatwg-fetch": "^3.6.2",
+    "zx": "^2.0.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "@types/express": "^4.17.13",
+    "@types/node-fetch": "^2.5.12",
+    "jsdom": "^16.6.0",
+    "types-cloudflare-worker": "^1.2.0"
+  }
+}

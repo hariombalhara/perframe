@@ -1,0 +1,12 @@
+name = "perfproxy"
+type = "webpack"
+
+account_id = "" # Add CF Account ID(https://community.cloudflare.com/t/where-can-i-find-my-account-id/164431) here
+workers_dev = true
+route = ""
+zone_id = "" # Add CF Zone ID(https://community.cloudflare.com/t/where-to-find-zone-id/132913) here
+webpack_config = "webpack.cf-worker.config.js"
+kv_namespaces = [
+    # Make a KV namespace in Workers Dashboard on the KV page and use the generated ID here.
+    {binding = "HTML_CACHE", id="MAKE_KV_NAMESPACE_AND_ADD_ID_HERE"}
+]

@@ -1,0 +1,16 @@
+target
+dist
+**/*.rs.bk
+Cargo.lock
+bin/
+pkg/
+wasm-pack.log
+node_modules/
+.cargo-ok
+worker/**/*
+wrangler.toml
+.DS_STORE
+lighthouse-latest.json
+version.json
+auto-audits
+latest-run

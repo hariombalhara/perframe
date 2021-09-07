@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "git.ignoreLimitWarning": true,
+    "files.exclude": {
+      "dist": true
+    },
+    "files.watcherExclude": {
+      "dist": true
+    },
+    "search.exclude": {
+      "dist": true
+    }
+  }
+}
