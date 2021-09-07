@@ -56,12 +56,12 @@ fs.writeFileSync('version.json', JSON.stringify({ '//': 'Auto Generated File', v
 await $`VERSION=${version} VERSION_READABLE=${versionReadable} ./node_modules/@cloudflare/wrangler/run-wrangler.js publish --env ${AUDIT}`
 
 async function ensureVersion(version) {
-	let versionUrl = 'https://${AUDIT}-perfproxy.hariombalhara.workers.dev/__perfproxyVersion';
+	let versionUrl = `https://${AUDIT}-perfproxy.hariombalhara.workers.dev/__perfproxyVersion`;
 	if (versionUrl.includes('YOUR_DOMAIN')) {
 		console.log(chalk.red('Please modify versionUrl to replace YOUR_DOMAIN with your cloudflare worker domain.'))
 		process.exit(1)
 	}
-	const response = await fetch(``);
+	const response = await fetch(versionUrl);
 	const versionDetails = await response.json();
 	return versionDetails.version == version;
 }
