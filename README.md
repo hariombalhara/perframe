@@ -21,10 +21,9 @@ This is in completely usable state but it is still not polished well.
 
   Document ideas in a declarative fashion in `audits/${WEBSITE}/pages.js` file and keep the code to apply the changes along with it.
 
-  - Negligible Impact on
-
+  - Negligible Difference in Proxied and Original Website's Performance
     - _Almost no impact on TTFB_ due to optimizations being applied on Cached Responses.
-    - HTML Responses are cached and automatically cache busted on new deployment.
+    - HTML Responses are cached at Edge and automatically cache busted on new deployment.
     - Note that [HTMLRewriter](https://developers.cloudflare.com/workers/runtime-apis/html-rewriter) which is much faster than string replacements isn't used in this project so that I can get the same code working in ServiceWorker as well as Cloudflare Worker.
 
   - Test directly on Production Environment
