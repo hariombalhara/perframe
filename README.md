@@ -96,6 +96,11 @@ This is in completely usable state but it is still not polished well.
 
    - If you are using VSCode there is a [VSCode task](https://code.visualstudio.com/docs/editor/tasks) **'Create Terminals'** written that automatically runs the above two commands on startup. If it doesn't run on startup you can run the task manually using VSCode Command Panel
 
+7. Optimized website would be available `https://127.0.0.1:9090/?__optimization=1` - Port can't be easily changed right now. You would need to replace all 9090 occurrences in the code.
+8. You can access the Perframe UI on the website by adding query param `__perframe_ui=1`. This is how it would look ![Perframe UI - Closed](./perframe-ui.png) ![Perframe UI Open](./perframe-ui-open-state.png)
+9. This is how generated report would look ![Generated Report](./report-example.png)
+10. Before and after impact can be observed by removing and adding `__optimization=1` query param. Note that individual optimizations can also be disabled instead of disabling all optimizations at once.
+
 ## Tips
 
 - While debugging in console add `-file` in Chrome Console Filter to not see the resources that have been blocked. **Perframe** blocks resources by replacing the resource URLs with `file://` URLs.
