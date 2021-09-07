@@ -25,6 +25,7 @@ This is in completely usable state but it is still not polished well.
 
     - _Almost no impact on TTFB_ due to optimizations being applied on Cached Responses.
     - HTML Responses are cached and automatically cache busted on new deployment.
+    - Note that [HTMLRewriter](https://developers.cloudflare.com/workers/runtime-apis/html-rewriter) which is much faster than string replacements isn't used in this project so that I can get the same code working in ServiceWorker as well as Cloudflare Worker.
 
   - Test directly on Production Environment
 
@@ -79,10 +80,12 @@ This is in completely usable state but it is still not polished well.
 
 ## Usage Instructions
 
-1. Get a Cloudflare Account. It's free
-2. Create wrangler.toml(Use wrangler.example.toml as the base)
-3. [Install and configure Wrangler](https://developers.cloudflare.com/workers/cli-wrangler)
-4. Keep the following 2 commands running:
+1. Get a Cloudflare Account and register for Cloudflare Workers. It's free
+2. Make a note of your Cloudflare Worker domain.(This is available on the right side in your Cloudflare Worker section).
+3. Replace YOUR_DOMAIN in `environment.js` and `publish.mjs` with your Cloudflare Worker subdomain.
+4. Create wrangler.toml(Use wrangler.example.toml as the base)
+5. [Install and configure Wrangler](https://developers.cloudflare.com/workers/cli-wrangler)
+6. Keep the following 2 commands running:
 
    - `pnpm run start`
      - _Proxy Server is required to fetch the content from http://127.0.0.1 to avoid CORS restrictions in Service Worker. These are not applicable to Cloudflare Workers_.

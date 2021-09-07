@@ -5,7 +5,13 @@ import { prepareChanges } from '../utils';
 
 // Must not have / in the end.
 export const PROXY_CONTENT_PATH = '/__perfproxy';
+// MODIFY THIS RegExp to replace YOUR_DOMAIN with your CF Worker Domain(https://developers.cloudflare.com/workers/get-started/guide#1-sign-up-for-a-workers-account)
 export const proxyWebsiteRegExp = /https?:\/\/.*-perfproxy\.hariombalhara\.workers\.dev\/|http:\/\/127.0.0.1:9090\//;
+
+if (proxyWebsiteRegExp.toString().includes('YOUR_DOMAIN')) {
+	throw new Error('Please modify the `proxyWebsiteRegExp` to match your domain');
+}
+
 // Available from WebPack DefinePlugin
 export const version = __VERSION__;
 export const versionReadable = __VERSION_READABLE__;
