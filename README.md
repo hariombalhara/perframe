@@ -52,7 +52,7 @@ This is in completely usable state but it is still not polished well.
 
 - Development
 
-  - SuperFast Dev Experience using ServiceWorker. Test your changes directly on ServiceWorker which provides a much better debugging experience then Cloudflare Workers. This is possible Cloudflare Workers is using Service Workers API with some modifications.
+  - SuperFast Dev Experience using ServiceWorker. Test your changes directly on ServiceWorker which provides a much better debugging experience then Cloudflare Workers. This is possible because Cloudflare Workers is using Service Workers API with some modifications.
   - HTML Responses are cached and automatically cache busted on new deployment.
   - Express server run under nodemon so that it restarts automatically and reruns on changes
   - Automatically Publish to Cloudflare Worker on file save.
