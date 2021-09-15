@@ -1,6 +1,6 @@
 # Perframe
 
-The PERFormance FRAMEwork that provides you a way to declaratively apply changes to your website on the fly with automatic optimization report generation from the declarative configuration.
+The PERFormance FRAMEwork that provides you a way to declaratively apply changes to your website on the fly with automatic "Optimization Report" generation from the declarative configuration.
 
 On the fly changes are applied using [Cloudflare Workers](https://workers.cloudflare.com/).
 
